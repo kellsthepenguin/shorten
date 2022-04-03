@@ -21,7 +21,7 @@ const Home: NextPage = () => {
       .then((result) => {
         if (shortenedLinkText.current !== null) {
           console.log(result)
-          shortenedLinkText.current.innerHTML = new URL(location.href).origin + '/' + result.id
+          shortenedLinkText.current.innerHTML = new URL(location.href).origin + '/s/' + result.id
         }
       })
   }
