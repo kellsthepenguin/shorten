@@ -17,7 +17,6 @@ const Redirect: NextPage = () => {
     if (!data) return <div>loading...</div>
 
     router.replace(data.url!)
-  }
 
   return (
     <div>
