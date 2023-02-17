@@ -11,12 +11,10 @@ const fetcher = (url: string) => fetch(url).then(r => r.json())
 const Redirect: NextPage = () => {
   const router = useRouter()
   const { data, error } = useSWR(`/api/linkinfo/${router.query['id']}`, fetcher) as { data: Link, error: any }
+  if (error) return <div>failed to load</div>
+  if (!data) return <div>loading...</div>
 
-  if (typeof window !== 'undefined') {
-    if (error) return <div>failed to load</div>
-    if (!data) return <div>loading...</div>
-
-    router.replace(data.url!)
+  router.replace(data.url!)
 
   return (
     <div>
